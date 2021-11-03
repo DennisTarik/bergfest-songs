@@ -8,31 +8,3 @@
   height: 100%;
   object-fit: contain;
 }
-
-.form {
-  display: grid;
-  row-gap: 1rem;
-}
-
-.input {
-  font-size: 4rem;
-  text-align: center;
-}
-
-.submitButton {
-  font-size: 3rem;
-  border-radius: 2rem;
-  transition: all.4s;
-  background-color: rgb(200 190 5/80%);
-}
-
-.submitButton:hover {
-  font-size: 5rem;
-  background-color: rgb(200 190 5/100%);
-}
-
-.title {
-  text-transform: uppercase;
-  font-size: 4rem;
-  text-align: center;
-}

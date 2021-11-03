@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './App.module.css';
+import Registration from './components/Registration/Registration';
 import SplashImage from './components/SplashImage/SplashImage';
 import Title from './components/Title/Title';
 
@@ -12,20 +13,7 @@ function App(): JSX.Element {
       />
       <div>
         <Title text="Bergfest" />
-        <form className={styles.form}>
-          <input
-            className={styles.input}
-            type="text"
-            placeholder="First name"
-          />
-          <input className={styles.input} type="text" placeholder="Last name" />
-          <input
-            className={styles.submitButton}
-            type="submit"
-            value="Sign in for Partey"
-            placeholder="Enter song here!"
-          />
-        </form>
+        <Registration />
       </div>
     </main>
   );
