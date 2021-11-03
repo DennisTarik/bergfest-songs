@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './App.module.css';
+import Title from './components/title/Title';
 
 function App(): JSX.Element {
   return (
@@ -10,18 +11,14 @@ function App(): JSX.Element {
         alt="Some people chilling on a table"
       />
       <div>
-        <h1 className={styles.title}>Bergfest Party Time </h1>
+        <Title />
         <form className={styles.form}>
           <input
             className={styles.input}
             type="text"
             placeholder="First name"
           />
-          <input
-            className={styles.input}
-            type="text"
-            placeholder="First name"
-          />
+          <input className={styles.input} type="text" placeholder="Last name" />
           <input
             className={styles.submitbutton}
             type="submit"

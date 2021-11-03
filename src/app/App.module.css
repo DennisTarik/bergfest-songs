@@ -24,11 +24,12 @@
   font-size: 3rem;
   border-radius: 2rem;
   transition: all.4s;
-  background-color: rgb(200 190 5/100%);
+  background-color: rgb(200 190 5/80%);
 }
 
 .submitbutton:hover {
   font-size: 5rem;
+  background-color: rgb(200 190 5/100%);
 }
 
 .title {
