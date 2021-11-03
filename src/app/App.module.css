@@ -1,0 +1,38 @@
+.container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  place-items: center;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.form {
+  display: grid;
+  row-gap: 1rem;
+}
+
+.input {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.submitbutton {
+  font-size: 3rem;
+  border-radius: 2rem;
+  transition: all.4s;
+  background-color: rgb(200 190 5/100%);
+}
+
+.submitbutton:hover {
+  font-size: 5rem;
+}
+
+.title {
+  text-transform: uppercase;
+  font-size: 4rem;
+  text-align: center;
+}
