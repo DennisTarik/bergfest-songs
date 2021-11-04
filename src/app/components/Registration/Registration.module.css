@@ -13,9 +13,16 @@
   border-radius: 2rem;
   transition: all.4s;
   background-color: rgb(200 190 5/80%);
+  margin: 3rem;
 }
 
 .submit:hover {
   font-size: 5rem;
   background-color: rgb(200 190 5/100%);
+  margin: 3rem;
+}
+
+.dropDown {
+  font-size: 4rem;
+  text-align: center;
 }
