@@ -1,28 +1,70 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
 import styles from './Registration.module.css';
+
+type User = {
+  firstName: string;
+  lastName: string;
+};
 
 function Registration(): JSX.Element {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+  const [users, setUsers] = useState<User[]>([]);
 
-  console.log(firstName);
-  console.log(lastName);
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+
+    fetch('https://json-server.machens.dev/users', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+      }),
+    });
+  }
+
+  function handleFirstNameChange(event: ChangeEvent<HTMLInputElement>) {
+    setFirstName(event.target.value);
+  }
+  function handleLastNameChange(event: ChangeEvent<HTMLInputElement>) {
+    setLastName(event.target.value);
+  }
+
+  async function handleSelectClick() {
+    const response = await fetch('https://json-server.machens.dev/users');
+    const newUsers = await response.json();
+    setUsers(newUsers);
+  }
+
+  const userOptions = users.map((user) => (
+    <option>
+      {user.firstName} {user.lastName}
+    </option>
+  ));
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <select onClick={handleSelectClick}>
+        <option disabled>Select user</option>
+        {userOptions}
+      </select>
+      or
       <input
-        className={styles.firstName}
+        className={styles.name}
         type="text"
         placeholder="First name"
         value={firstName}
-        onChange={(event) => setFirstName(event.target.value)}
+        onChange={handleFirstNameChange}
       />
       <input
-        className={styles.lastName}
+        className={styles.name}
         type="text"
         placeholder="Last name"
         value={lastName}
-        onChange={(event) => setLastName(event.target.value)}
+        onChange={handleLastNameChange}
       />
       <input
         className={styles.submit}
