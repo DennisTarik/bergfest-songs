@@ -5,7 +5,17 @@ import SplashImage from './components/SplashImage/SplashImage';
 import Title from './components/Title/Title';
 
 function App(): JSX.Element {
-  const [selectedUser, setSelectedUser] = useState<string | null>(null);
+  const [selectedUser, setSelectedUser] = useState<string | null>(
+    localStorage.getItem('selectedUser')
+  );
+
+  useEffect(() => {
+    if (selectedUser) {
+      localStorage.setItem('selectedUser', selectedUser);
+    } else {
+      sessionStorage.removeItem('selectedUser');
+    }
+  }, [selectedUser]);
 
   useEffect(() => {
     document.title = selectedUser ? `Hi ${selectedUser}` : 'Bergfest';
@@ -19,7 +29,7 @@ function App(): JSX.Element {
       />
       <div>
         <Title text="Bergfest" />
-        <Registration onUserSelected={(userName) => alert(userName)} />
+        <Registration onUserSelected={setSelectedUser} />
       </div>
     </main>
   );

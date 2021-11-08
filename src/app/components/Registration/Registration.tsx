@@ -14,7 +14,7 @@ function Registration({ onUserSelected }: RegistrationProps): JSX.Element {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [users, setUsers] = useState<User[]>([]);
-  const [selectedUser, setSelectedUser] = useState<string | null>(null);
+  const [selectedUser] = useState<string | null>(null);
   console.log({ selectedUser });
 
   function handleSubmit(event: FormEvent) {
