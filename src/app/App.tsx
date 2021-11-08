@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './App.module.css';
 import Registration from './components/Registration/Registration';
 import SplashImage from './components/SplashImage/SplashImage';
@@ -6,7 +6,11 @@ import Title from './components/Title/Title';
 
 function App(): JSX.Element {
   const [selectedUser, setSelectedUser] = useState<string | null>(null);
-  console.log(selectedUser);
+
+  useEffect(() => {
+    document.title = selectedUser ? `Hi ${selectedUser}` : 'Bergfest';
+  });
+
   return (
     <main className={styles.container}>
       <SplashImage
